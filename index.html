@@ -21,19 +21,54 @@
     <title>Sesion 14</title>
   </head>
   <body>
-    <div ng-app="MyApp" ng-controller="formCtrl" class="container p-4">
-      <form novalidate>
-        <label for="txtRecorrido">Recorrido</label>
-        <input id="txtRecorrido" type="text" ng-model="auto.kilometro" />
-        <button ng-click="calcular()">Calcular</button>
+    <div ng-app="MyApp" ng-controller="formCtrl" class="container">
+      <h1 class="text-center mt-3">Actividad asíncrona 14</h1>
+      <form novalidate class="form-group row p-4">
+        <section class="form-group col-6 mt-2">
+          <label class="col-6" for="txtCodigo">Codigo del empleado</label>
+          <input
+            class="col-12 form-control"
+            id="txtCodigo"
+            type="text"
+            ng-model="empleado.codigo"
+          />
+        </section>
+        <section class="form-group col-6 mt-2">
+          <label class="col-12" for="txtHoras">Horas trabajadas</label>
+          <input
+            class="col-12 form-control"
+            id="txtHoras"
+            type="text"
+            ng-model="empleado.horas"
+          />
+        </section>
+        <section class="form-group col-12 mt-2">
+          <label class="col-12" for="txtTarifa">Tarifa por hora</label>
+          <input
+            class="col-12 form-control"
+            id="txtTarifa"
+            type="text"
+            ng-model="empleado.tarifa"
+          />
+        </section>
+        <section class="col-12 mt-3 d-flex justify-content-center">
+          <button class="btn btn-primary" ng-click="calcularSalario()">
+            Calcular
+          </button>
+        </section>
       </form>
-      <p>Recorrido {{auto.kilometro}}</p>
-      <p>Tarifa {{auto.tarifa}}</p>
-      <p>---------------------------------------</p>
-      <p>Monto {{auto.monto}}</p>
-      <p>Descuento {{auto.descuento}}</p>
-      <p>---------------------------------------</p>
-      <p>Total {{auto.total}}</p>
+      <p>
+        <span class="fw-bold">Salario Bruto: </span>
+        <span ng-bind="empleado.salarioBruto"></span>
+      </p>
+      <p>
+        <span class="fw-bold">Descuento: </span>
+        <span ng-bind="empleado.descuento"></span>
+      </p>
+      <p>
+        <span class="fw-bold">Salario Neto: </span>
+        <span ng-bind="empleado.salarioNeto"></span>
+      </p>
     </div>
     <script src="./js/main.js"></script>
   </body>
